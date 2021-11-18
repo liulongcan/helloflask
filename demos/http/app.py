@@ -205,8 +205,8 @@ def do_something():
 
 
 def is_safe_url(target):
-    ref_url = urlparse(request.host_url)
-    test_url = urlparse(urljoin(request.host_url, target))
+    ref_url = urlparse(request.host_url)  # 主机url
+    test_url = urlparse(urljoin(request.host_url, target))  # target是个相对的url，因此要join
     return test_url.scheme in ('http', 'https') and \
            ref_url.netloc == test_url.netloc
 
